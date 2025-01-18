@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.App {
+  text-align: center;
+  background-color: lightgray;
+}
+
+
+.container {
+  justify-self: center;
+  height: 100vh; /* This is creating more space when I add a top bar. I want this
+                  to only take up the rest of the page, not always the height 
+                  of a given screen.*/
+  display: flex;
+}
+
+.top-bar {
+  height: 80px;
+  justify-content: center;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.main-button {
+  height: 50vh;
+  width: 50%;
+
+}
