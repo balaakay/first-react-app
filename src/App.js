@@ -1,35 +1,29 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './navbar'
 import './App.css';
-//import { SpeedInsights } from '@vercel/speed-insights/react';
+import Home from './Home'
+import About from './About'
+import Contact from './Contact'
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react'
+
 
 
 export default function App() {
   return (
-    <div className='App'>
-      <div className='top-bar'>Global Click Counter</div>
-      <div className='container'>
-        {/* <MyNavBar /> 
-        <SpeedInsights /> Speed insights is not working. I don't want to deal with it */}
-        <MyButton />
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
       </div>
-    </div>
+      <SpeedInsights />
+      <Analytics />
+    </Router>
   )
 }
-
-
-
-function MyButton() {
-  const [count, setCount] = useState(0)
-
-  function handleClick() {
-    setCount(count + 1)
-  }
-
-  return (
-    <button onClick={handleClick} className='main-button bg-blue-300 p-10 justify-center'>
-      {count}
-    </button>
-  )
-}
-
 
