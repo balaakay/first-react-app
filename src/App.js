@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+//import { SpeedInsights } from '@vercel/speed-insights/react';
 
 
 export default function App() {
@@ -8,10 +8,10 @@ export default function App() {
     <div className='App'>
       <div className='top-bar'>Big Ass Click Counter</div>
       <div className='container'>
-        {/* <MyNavBar /> */}
+        {/* <MyNavBar /> 
+        <SpeedInsights /> Speed insights is not working. I don't want to deal with it */}
         <MyButton />
       </div>
-      <SpeedInsights />
     </div>
   )
 }
