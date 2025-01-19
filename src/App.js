@@ -6,7 +6,7 @@ import './App.css';
 export default function App() {
   return (
     <div className='App'>
-      <div className='top-bar'>Big Ass Click Counter</div>
+      <div className='top-bar'>Global Click Counter</div>
       <div className='container'>
         {/* <MyNavBar /> 
         <SpeedInsights /> Speed insights is not working. I don't want to deal with it */}
@@ -31,6 +31,5 @@ function MyButton() {
     </button>
   )
 }
-
 
 
