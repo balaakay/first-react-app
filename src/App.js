@@ -24,7 +24,7 @@ function MyButton() {
   }
 
   return (
-    <button onClick={handleClick} className='main-button bg-green-300 p-10 justify-center rounded-full'>
+    <button onClick={handleClick} className='main-button bg-blue-300 p-10 justify-center'>
       {count}
     </button>
   )
