@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import './App.css';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 
 export default function App() {
   return (
     <div className='App'>
-     <div className='top-bar'>Big Ass Click Counter</div>
+      <div className='top-bar'>Big Ass Click Counter</div>
       <div className='container'>
         {/* <MyNavBar /> */}
         <MyButton />
       </div>
+      <SpeedInsights />
     </div>
   )
 }
