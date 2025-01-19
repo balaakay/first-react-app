@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css';
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 
 export default function App() {
