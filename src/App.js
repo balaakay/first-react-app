@@ -6,6 +6,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
 import Blog from './components/blog'
+import TimeoutPage from './components/timeout'
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react'
 
@@ -21,6 +22,7 @@ export default function App() {
           <Route path='/blog' element={<Blog />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/timeout' element={<TimeoutPage />} />
         </Routes>
       </div>
       <SpeedInsights />

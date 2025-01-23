@@ -1,5 +1,9 @@
 ToDo list:
 
-_ Make a profile page
-_ Make a landing page
-
+[X] What is the webapp going to do?
+  -> Interactive blog application with logins, comments, email the creator forms
+[ ] create pages with sample data hardcoded
+[ ] integrate DB and remove data hardcoding
+[ ] How should I handle my auth?
+[ ] execute above auth plan
+[ ] Style webpages more thuroughly
