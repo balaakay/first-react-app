@@ -2,13 +2,15 @@
   * TODO 
   * - Decide if an aside is what we want
   * - Style the page to be more centered
+  * - Convert this to typescript. Will need an interface to pass blogPost props
+  *   number variable
   *
   */
 
 
 export default function Blog() {
   return (
-    <div>
+    <div className="bg-gray-300">
       <div className="content float-left">
         This is pretty cool for a blog
         <BlogLoader className=""/>
