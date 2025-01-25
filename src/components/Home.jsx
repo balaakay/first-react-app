@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 /*
   * TODO
+  * - The blog posts are coming from data that is created and components that are
+  *   created in this document. I should create the BlogPost component in Blog.jsx
+  *   and reuse it here, maybe with different stylings or something like that.
+  *
+  * - Move the 'Don't push' button over to the right somewhere and size accordingly.
+  *   I want it to be a small picture of a split keyboard eventually.
+  *
   * - make this page dynamic. If logged in, use account preferences to parse out
   *   the correct blogs to show on the home screen based on interest. If the user
   *   is not logged in, show them everything and have a note at the top talking
@@ -27,17 +35,14 @@ import { Link } from 'react-router-dom'
 
 
 const Home = () => (
-  <div className="flex flex-col w-full justify-center items-center bg-blue-100">
-    <div className="p-12"></div>
-    <h1 className="block p-5 items-center bg-green-100">
-      Balaakay's Office
-    </h1>
-    <h2 className="block pt-12 pb-8 p-3 bg-red-100">
-      Welcome, feel free to look around. Don't unplug anything and don't touch the keyboard
+  <div className="flex flex-col w-full justify-evenly items-center bg-blue-100">
+    <div className="p-3"></div>
+    <TimeoutButton />
+    <h2 className="block pt-12 pb-8 p-3 bg-red-100 text-xl">
+      {'Welcome, feel free to look around. Don\'t unplug anything and don\'t touch the keyboard'}
     </h2>
     <div className="flex flex-row">
       <BlogImport/>
-      <TimeoutButton />
     </div>
   </div>
 )
@@ -46,7 +51,7 @@ const Home = () => (
 export function TimeoutButton() {
   return (
     <Link to="/timeout" className="p-5 border-2 rounded-xl border-black text-center ">
-      Do not push this button
+      {'Do not push this button'}
     </Link>
   )
 }
@@ -54,25 +59,47 @@ export function TimeoutButton() {
 
 export function BlogImport() {
   const blogPosts = {
-    "text1": "Hi, I'm Blake Dallas. Programmer and baseball fanatic.",
-    "text2": "Baseball statistics are basically a part of me now. I have studied" +
-    " them for years and years.",
-    "text3": "Is react a good thing or a bad thing? I don't know. But I do know " +
-    "I used it to create this website/app",
+    texts: [
+      {id: 1, title: "Introduction", content: "Hi, I'm Blake Dallas. Programmer and baseball fanatic."},
+      {id:2, title: "Baseball", content: "Baseball statistics are basically a part of me now. I have studied" +
+        " them for years and years."},
+      {id:3, title: "React", content: "Is react a good thing or a bad thing? I don't know. But I do know " +
+        "I used it to create this website/app"}
+    ],
   }
 
   return (
-    <div className="p-10 bg-green-100 text-center grid-cols-1 gap-2 col-auto">
-      <p className='font-bold'>
-        links to blog posts
+    <div className="px-10 pb-10 pt-4 bg-green-100 text-center">
+      <p className='font-bold pb-4'>
+        {'links to blog posts'}
       </p>
-      <div className="w-80 p-8 border rounded-xl border-black text-center">{blogPosts.text1}</div>
-      <div className="w-80 p-8 border rounded-xl border-black text-center">{blogPosts.text2}</div>
-      <div className="w-80 p-8 border rounded-xl border-black text-center">{blogPosts.text3}</div>
+      <div className='grid grid-cols-3'>
+      {blogPosts.texts.map((text) => (
+        <BlogPost key={text.id} title={text.title} content={text.content} />
+      ))}
+      </div>
     </div>
   )
 }
 
+
+const BlogPost = ({ title, content }) => {
+  console.log('Title: ', title)
+  console.log('Content: ', content)
+
+  return <div className="w-80 p-8 border rounded-xl border-black text-center">
+      <h1 className='text-xl font-bold pb-4'>{title}</h1>
+      <p>{content}</p>
+    </div>
+}
+
+
+// This is for making sure that the content that is passed to a blog post is a
+// string and exists. I will have to learn more about when to create these propTypes
+BlogPost.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+}
 
 
 

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 /*
   * TODO 
   * - Decide if an aside is what we want
@@ -37,6 +39,10 @@ function BlogLoader() {
     )
   }
 
+  BlogPost.propTypes = {
+    number: PropTypes.number.isRequired
+  }
+
   return (
     <div>
       <BlogPost number={1}/>
@@ -46,3 +52,5 @@ function BlogLoader() {
     </div>
   )
 }
+
+

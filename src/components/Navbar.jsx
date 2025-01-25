@@ -10,12 +10,19 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <nav className='flex w-full bg-linear-to-r/oklch from-cyan-500 to-blue-500 p-5 h-16'>
-      <img src='/Man_at_a_computer.jpg' alt='Logo' className='h-16 -mt-5 justify-start'/>
-      <div className='flex items-center bg-yellow-100'>
+    <nav className='flex justify-between w-full bg-linear-to-r/oklch from-cyan-500 via-blue-400 to-purple-500 p-5 h-24'>
+      <div className='flex space-x-4 items-center'>
         <NavList />
       </div>
-      <div className='flex items-center bg-red-100 p-5 -mt-2.5'>Log In</div>
+      <div className='absolute left-1/2 transform -translate-x-1/2 text-center text-3xl mt-2'>
+        {/* <img src='/Man_at_a_computer.jpg' alt='Logo' className='h-16 -mt-1 justify-start'/> */}
+        <h1>
+          {'Balaakay\'s Office'}
+        </h1>
+      </div>
+      <div className='flex items-center border border-black rounded-lg bg-red-100 p-5'>
+        {'Log In'}
+      </div>
     </nav>
   )
 }

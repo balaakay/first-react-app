@@ -7,5 +7,14 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss()
+    /* For when you want to turn on the react compiler
+    react({
+      babel: {
+        plugins: [
+          ["babel-plugin-react-compiler", ReactCompilerConfig],
+        ],
+      },
+    }),
+    */
   ],
 })
