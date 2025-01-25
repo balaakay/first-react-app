@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <nav className='flex w-full bg-gray-300 p-5 h-16'>
+    <nav className='flex w-full bg-linear-to-r/oklch from-cyan-500 to-blue-500 p-5 h-16'>
       <img src='/Man_at_a_computer.jpg' alt='Logo' className='h-16 -mt-5 justify-start'/>
       <div className='flex items-center bg-yellow-100'>
         <NavList />
@@ -24,7 +24,7 @@ export default function Navbar() {
 function NavList() {
   return (
     <ul className='flex items-center'>
-      <li className='inline-block cursor-pointer hover:font-bold'>
+      <li className='inline-block cursor-pointer hover:font-bold '>
         <Link to="/" className='py-10 pr-7'>Home</Link>
       </li>
       <li className='inline-block cursor-pointer hover:font-bold'>
