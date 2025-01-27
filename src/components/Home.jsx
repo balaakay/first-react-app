@@ -38,7 +38,7 @@ const Home = () => (
   <div className="flex flex-col w-full justify-evenly items-center bg-blue-100">
     <div className="p-3"></div>
     <TimeoutButton />
-    <h2 className="block pt-12 pb-8 p-3 bg-red-100 text-xl">
+    <h2 className="block pt-12 pb-8 p-3 bg-red-100 text-xl sm:text-lg">
       {'Welcome, feel free to look around. Don\'t unplug anything and don\'t touch the keyboard'}
     </h2>
     <div className="flex flex-row">
@@ -50,7 +50,7 @@ const Home = () => (
 
 export function TimeoutButton() {
   return (
-    <Link to="/timeout" className="p-5 border-2 rounded-xl border-black text-center ">
+    <Link to="/timeout" className="p-3 sm:p-3 md:p-5 border-1 sm:border-1 md:border-2 rounded-xl border-black text-center ">
       {'Do not push this button'}
     </Link>
   )
@@ -73,7 +73,7 @@ export function BlogImport() {
       <p className='font-bold pb-4'>
         {'links to blog posts'}
       </p>
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
       {blogPosts.texts.map((text) => (
         <BlogPost key={text.id} title={text.title} content={text.content} />
       ))}
