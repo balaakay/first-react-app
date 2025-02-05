@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { useState, useEffect } from 'react'
 
 /*
   * TODO
@@ -73,10 +74,11 @@ export function BlogImport() {
       <p className='font-bold pb-4'>
         {'links to blog posts'}
       </p>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
       {blogPosts.texts.map((text) => (
         <BlogPost key={text.id} title={text.title} content={text.content} />
       ))}
+      <NewBlogPost />
       </div>
     </div>
   )
@@ -84,13 +86,17 @@ export function BlogImport() {
 
 
 const BlogPost = ({ title, content }) => {
+
   console.log('Title: ', title)
   console.log('Content: ', content)
 
-  return <div className="w-80 p-8 border rounded-xl border-black text-center">
+  return <button onClick={() => {
+        return (alert("this is an alert"))
+      }
+      } className="w-80 p-8 border rounded-xl border-black text-center cursor-pointer">
       <h1 className='text-xl font-bold pb-4'>{title}</h1>
       <p>{content}</p>
-    </div>
+    </button>
 }
 
 
@@ -99,6 +105,35 @@ const BlogPost = ({ title, content }) => {
 BlogPost.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+}
+
+
+const NewBlogPost = () => {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/test')
+      .then(response => response.json())
+      .then(data => {
+        setData(data)
+        setLoading(false)
+      })
+      .catch(error => {
+        setError(error.message)
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Error: {error}</div>
+  return <button onClick={() => {
+        return (alert("this is an alert"))
+      }
+      } className="w-80 p-8 border rounded-xl border-black text-center cursor-pointer">
+      <h1 className='text-xl font-bold pb-4'>{data?.message}</h1>
+    </button>
 }
 
 

@@ -1,0 +1,4 @@
+List of things I need to understand eventually but the web is so vast I just cant:
+
+[ ] package.json
+[ ] 
